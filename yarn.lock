@@ -1339,6 +1339,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hotwired/stimulus-webpack-helpers@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@hotwired/stimulus-webpack-helpers@npm:1.0.1"
+  peerDependencies:
+    "@hotwired/stimulus": ">= 3.0"
+  checksum: 300b3b41464c8fb126c28f84731a04b10c0cfa4eb727eac4968a140856f746589a688c82803b55ba14c8c8628c5f069a114911556132197003ad790d82816ee5
+  languageName: node
+  linkType: hard
+
+"@hotwired/stimulus@npm:^3.2.2":
+  version: 3.2.2
+  resolution: "@hotwired/stimulus@npm:3.2.2"
+  checksum: c5c7506343f2b5b5092bf97827c9955735e7e0290f93da734cbac62a45f91a6612a175f05cb419d87cc32644db35806089df1fbefdef273d522eb02fd45ca74e
+  languageName: node
+  linkType: hard
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -1489,6 +1505,21 @@ __metadata:
   version: 0.27.8
   resolution: "@sinclair/typebox@npm:0.27.8"
   checksum: 7e5f62b0c2c8152c5884d6241720c384d884b4d036c18ae30b03cf3ac79280d4904127b60d61992e6dcb6de3e2d55bc371e38fef7c54279001f9d53e76f4bd33
+  languageName: node
+  linkType: hard
+
+"@symfony/stimulus-bridge@npm:^3.2.2":
+  version: 3.2.2
+  resolution: "@symfony/stimulus-bridge@npm:3.2.2"
+  dependencies:
+    "@hotwired/stimulus-webpack-helpers": "npm:^1.0.1"
+    "@types/webpack-env": "npm:^1.16.4"
+    acorn: "npm:^8.0.5"
+    loader-utils: "npm:^2.0.0"
+    schema-utils: "npm:^3.0.0"
+  peerDependencies:
+    "@hotwired/stimulus": ^3.0
+  checksum: 9e2a43eb5410bc8dccf9958d8a0d12f1a738565b91a520e8cca0ddd5c2876c9e8951a280b6160917d1f94c46505c04a3b4ed82c0eee8f90f7d57a03538915bd9
   languageName: node
   linkType: hard
 
@@ -1873,6 +1904,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/webpack-env@npm:^1.16.4":
+  version: 1.18.4
+  resolution: "@types/webpack-env@npm:1.18.4"
+  checksum: eb297fdcb4f944b9b79e048da4b905f3dae5ff2273d48a73da816bdf9d82d08997531085963bc54f74ade3a52eba9704a72d3595626c296dc30b41690ac92d15
+  languageName: node
+  linkType: hard
+
 "@types/ws@npm:^8.5.5":
   version: 8.5.10
   resolution: "@types/ws@npm:8.5.10"
@@ -2122,7 +2160,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:^8.7.1, acorn@npm:^8.8.2":
+"acorn@npm:^8.0.5, acorn@npm:^8.7.1, acorn@npm:^8.8.2":
   version: 8.11.3
   resolution: "acorn@npm:8.11.3"
   bin:
@@ -5895,7 +5933,9 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.17.0"
     "@babel/preset-env": "npm:^7.16.0"
+    "@hotwired/stimulus": "npm:^3.2.2"
     "@popperjs/core": "npm:^2.11.8"
+    "@symfony/stimulus-bridge": "npm:^3.2.2"
     "@symfony/ux-turbo": "file:vendor/symfony/ux-turbo/assets"
     "@symfony/webpack-encore": "npm:^4.0.0"
     bootstrap: "npm:^5.3.3"
@@ -5971,7 +6011,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"schema-utils@npm:^3.1.1, schema-utils@npm:^3.2.0":
+"schema-utils@npm:^3.0.0, schema-utils@npm:^3.1.1, schema-utils@npm:^3.2.0":
   version: 3.3.0
   resolution: "schema-utils@npm:3.3.0"
   dependencies:
