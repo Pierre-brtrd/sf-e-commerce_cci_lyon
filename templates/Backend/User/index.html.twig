@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Administration des users
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-2">
+		<h1 class="text-center">Administration des users</h1>
+		<a href="{{ path('app.register') }}" class="btn btn-primary my-2">Créer un utilisateur</a>
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered" data-toggle="table" data-sort-name="fullName" data-sort-order="asc" data-pagination="true" data-search="true" data-show-columns="true">
+				<thead>
+					<tr scope="row">
+						<th scope="col" data-field="id">Id</th>
+						<th scope="col" data-field="fullName" data-sortable="true">Nom Complet</th>
+						<th scope="col" data-field="email" data-sortable="true">Email</th>
+						<th scope="col" data-field="roles">Roles</th>
+						<th scope="col">Actions</th>
+					</tr>
+				</thead>
+				<tbody class="table-group-divider">
+					{% for user in users %}
+						<tr scope="row">
+							<td scope="col">{{ user.id }}</td>
+							<td scope="col">{{ user.fullName }}</td>
+							<td scope="col">{{ user.email }}</td>
+							<td scope="col">{{ user.roles|join(', ') }}</td>
+							<td scope="col">
+								<div class="d-flex gap-2">
+									<a href="{{ path('admin.users.edit', {id: user.id}) }}" class="btn btn-warning">Modifier</a>
+									<form action="{{ path('admin.users.delete', {id: user.id}) }}" method="POST" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce user')">
+										<input type="hidden" name="token" value="{{ csrf_token('delete'~ user.id) }}">
+										<button type="submit" class="btn btn-danger">Supprimer</button>
+									</form>
+								</div>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</section>
+{% endblock %}

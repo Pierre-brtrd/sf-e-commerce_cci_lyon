@@ -8,3 +8,6 @@ import './bootstrap.js';
 import './styles/app.scss';
 
 require('bootstrap');
+
+import './javascript/jquery';
+import './javascript/bootstrap-table';
