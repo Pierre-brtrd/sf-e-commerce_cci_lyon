@@ -18,12 +18,19 @@
 						{% if is_granted('ROLE_ADMIN') %}
 							<li class="navbar-item me-2">
 								<div class="dropdown">
-									<a class="btn btn-secondary" href="#">Admin</a>
+									<button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Admin
+									</button>
+									<div class="dropdown-menu" aria-labelledby="triggerId">
+										<a class="dropdown-item" href="#">Users</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="#">Produits</a>
+									</div>
 								</div>
 							</li>
 						{% endif %}
 						<li class="navbar-item">
-							<a href="#" class="btn btn-danger text-light">Déconnexion</a>
+							<a href="/logout" class="btn btn-danger text-light">Déconnexion</a>
 						</li>
 						<li class="navbar-item ms-2">
 							<a href="#" class="btn btn-light">
