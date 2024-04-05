@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Création produit
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-2">
+		<h1 class="text-center">Créer un nouveau produit</h1>
+
+		{% include 'Backend/Produits/_form.html.twig' with {button_label: 'Créer'} %}
+		<a href="{{ path('app_produit_index') }}" class="btn btn-secondary">Retour à la liste</a>
+	</section>
+{% endblock %}
