@@ -1,4 +1,4 @@
-// import './bootstrap.js';
+import './bootstrap.js';
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -6,3 +6,8 @@
  * which should already be in your base.html.twig.
  */
 import './styles/app.scss';
+
+require('bootstrap');
+
+import './javascript/jquery';
+import './javascript/bootstrap-table';

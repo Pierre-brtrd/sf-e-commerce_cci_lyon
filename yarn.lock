@@ -1339,6 +1339,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hotwired/stimulus-webpack-helpers@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@hotwired/stimulus-webpack-helpers@npm:1.0.1"
+  peerDependencies:
+    "@hotwired/stimulus": ">= 3.0"
+  checksum: 300b3b41464c8fb126c28f84731a04b10c0cfa4eb727eac4968a140856f746589a688c82803b55ba14c8c8628c5f069a114911556132197003ad790d82816ee5
+  languageName: node
+  linkType: hard
+
+"@hotwired/stimulus@npm:^3.2.2":
+  version: 3.2.2
+  resolution: "@hotwired/stimulus@npm:3.2.2"
+  checksum: c5c7506343f2b5b5092bf97827c9955735e7e0290f93da734cbac62a45f91a6612a175f05cb419d87cc32644db35806089df1fbefdef273d522eb02fd45ca74e
+  languageName: node
+  linkType: hard
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -1489,6 +1505,31 @@ __metadata:
   version: 0.27.8
   resolution: "@sinclair/typebox@npm:0.27.8"
   checksum: 7e5f62b0c2c8152c5884d6241720c384d884b4d036c18ae30b03cf3ac79280d4904127b60d61992e6dcb6de3e2d55bc371e38fef7c54279001f9d53e76f4bd33
+  languageName: node
+  linkType: hard
+
+"@symfony/stimulus-bridge@npm:^3.2.2":
+  version: 3.2.2
+  resolution: "@symfony/stimulus-bridge@npm:3.2.2"
+  dependencies:
+    "@hotwired/stimulus-webpack-helpers": "npm:^1.0.1"
+    "@types/webpack-env": "npm:^1.16.4"
+    acorn: "npm:^8.0.5"
+    loader-utils: "npm:^2.0.0"
+    schema-utils: "npm:^3.0.0"
+  peerDependencies:
+    "@hotwired/stimulus": ^3.0
+  checksum: 9e2a43eb5410bc8dccf9958d8a0d12f1a738565b91a520e8cca0ddd5c2876c9e8951a280b6160917d1f94c46505c04a3b4ed82c0eee8f90f7d57a03538915bd9
+  languageName: node
+  linkType: hard
+
+"@symfony/ux-autocomplete@file:vendor/symfony/ux-autocomplete/assets::locator=root-workspace-0b6124%40workspace%3A.":
+  version: 1.0.0
+  resolution: "@symfony/ux-autocomplete@file:vendor/symfony/ux-autocomplete/assets#vendor/symfony/ux-autocomplete/assets::hash=75e47d&locator=root-workspace-0b6124%40workspace%3A."
+  peerDependencies:
+    "@hotwired/stimulus": ^3.0.0
+    tom-select: ^2.2.2
+  checksum: 2af57398fe2e7c5385c9c5f8934370d40540333caeb3c9de9af4acedb8f65b0ce7c0aa26dd938c85eb6a7e31d8b410f6adabd2c720d91f509f88af90e2298838
   languageName: node
   linkType: hard
 
@@ -1700,14 +1741,14 @@ __metadata:
   linkType: hard
 
 "@types/express-serve-static-core@npm:*, @types/express-serve-static-core@npm:^4.17.33":
-  version: 4.17.43
-  resolution: "@types/express-serve-static-core@npm:4.17.43"
+  version: 4.19.0
+  resolution: "@types/express-serve-static-core@npm:4.19.0"
   dependencies:
     "@types/node": "npm:*"
     "@types/qs": "npm:*"
     "@types/range-parser": "npm:*"
     "@types/send": "npm:*"
-  checksum: a8654645213e1c9cdeb7dc0f0ea1cd47ddc77b00d8f9baf9bb21a0f9eb190b36ea6f2e0838dead6faf88530bbab40d0440fc96f2346dd1b540873f941087ed74
+  checksum: d91c4678037c2f681450225830722baf060f5b4f3f85c6d9ad2368a103ca12302e4c9c7e7b11cf08d4a32c24eabfdd66490796e4d452e1dd875f0659d5399efb
   languageName: node
   linkType: hard
 
@@ -1805,11 +1846,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 20.12.4
-  resolution: "@types/node@npm:20.12.4"
+  version: 20.12.7
+  resolution: "@types/node@npm:20.12.7"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 2d1ec68bd47b552132b9fbbba408c7665c8c04ae4450b9a1f1335992d35e89f04265070e608774909e94bcde7eb92a7c3b26a379eee091c3284265de4c236c0d
+  checksum: f5360cf6e89855957c3e377f600910f88283e6669819cdf76a801df7519a9443dcce10e5c7eeabc4ab59da846bc5413e01a8184baf4027a5a48fc567c2720a47
   languageName: node
   linkType: hard
 
@@ -1870,6 +1911,13 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 0f455d7f48cdf6798a8411ee39f64409d14d5a167694de62f6b50d6aaf8e1ba47793a3b3b7e44d16802ad470e2d995f2d0838f8298bd0aa8bef3ddb6cd2b6b8f
+  languageName: node
+  linkType: hard
+
+"@types/webpack-env@npm:^1.16.4":
+  version: 1.18.4
+  resolution: "@types/webpack-env@npm:1.18.4"
+  checksum: eb297fdcb4f944b9b79e048da4b905f3dae5ff2273d48a73da816bdf9d82d08997531085963bc54f74ade3a52eba9704a72d3595626c296dc30b41690ac92d15
   languageName: node
   linkType: hard
 
@@ -2122,7 +2170,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:^8.7.1, acorn@npm:^8.8.2":
+"acorn@npm:^8.0.5, acorn@npm:^8.7.1, acorn@npm:^8.8.2":
   version: 8.11.3
   resolution: "acorn@npm:8.11.3"
   bin:
@@ -2433,6 +2481,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bootstrap-table@npm:^1.22.4":
+  version: 1.22.4
+  resolution: "bootstrap-table@npm:1.22.4"
+  peerDependencies:
+    jquery: 3
+  checksum: 2c14b5ca00532b58a5f9ed12f74e29d09e0060b2ad0f1f2634526ba7610550e370cf0976d180df0f9001836146171d1fdb30be3a07b96b5f0549354afd102fd8
+  languageName: node
+  linkType: hard
+
 "bootstrap@npm:^5.3.3":
   version: 5.3.3
   resolution: "bootstrap@npm:5.3.3"
@@ -2558,9 +2615,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001587":
-  version: 1.0.30001605
-  resolution: "caniuse-lite@npm:1.0.30001605"
-  checksum: 4e4176d7c5221b23bce43ff35bd0ebf871d0ebe5d806531ba2bd03dc2d05adbc34d7a4334c39a1a8d5e31c4a21029a4e16a44c0833161dc17a297684ad1a1269
+  version: 1.0.30001608
+  resolution: "caniuse-lite@npm:1.0.30001608"
+  checksum: 2252f1857df8e6ec48309fc57757d25eaa61cc5445f56448676cc441386bc5a90e9af6be924b645d6201cfd834d9f64cd6a1c77ba4ecfe69407de58734ec1408
   languageName: node
   linkType: hard
 
@@ -3231,9 +3288,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.668":
-  version: 1.4.726
-  resolution: "electron-to-chromium@npm:1.4.726"
-  checksum: be78389b67f7218631c556dbd8926140a802e531a273076cc6ecb1bea6ed349ba0aa8e1d1388b447dd546ba5df0455524ea040102d32d0f2b7e9e7b10810878c
+  version: 1.4.733
+  resolution: "electron-to-chromium@npm:1.4.733"
+  checksum: 07564b22d854044da0a1e627683ee3caa096a694bc250663ca80691e32341d9e66978724b2ff5f69475479e54e87a3ed3b8d7f57441e8070759ad01bcae5f6d9
   languageName: node
   linkType: hard
 
@@ -3306,11 +3363,11 @@ __metadata:
   linkType: hard
 
 "envinfo@npm:^7.7.3":
-  version: 7.11.1
-  resolution: "envinfo@npm:7.11.1"
+  version: 7.12.0
+  resolution: "envinfo@npm:7.12.0"
   bin:
     envinfo: dist/cli.js
-  checksum: 99f3acf5413ff8b7ce15c28e86678db90530d49b3564ea672e0cd9719334bcf21744b44a3f54b911fff76ef394c17092c50ff6e6688a1a079ed7a87fb2a6ce37
+  checksum: abbca68f16f6e97879bdf30a5dd0a55d1d73869de26c1b6cddcd3bb1f0cecb7e1db32dff9df1d61a2742f3849818a22562ac6aae03718c8de5393755e499a9e5
   languageName: node
   linkType: hard
 
@@ -5895,11 +5952,15 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.17.0"
     "@babel/preset-env": "npm:^7.16.0"
+    "@hotwired/stimulus": "npm:^3.2.2"
     "@popperjs/core": "npm:^2.11.8"
+    "@symfony/stimulus-bridge": "npm:^3.2.2"
+    "@symfony/ux-autocomplete": "file:vendor/symfony/ux-autocomplete/assets"
     "@symfony/ux-turbo": "file:vendor/symfony/ux-turbo/assets"
     "@symfony/webpack-encore": "npm:^4.0.0"
     bootstrap: "npm:^5.3.3"
     bootstrap-icons: "npm:^1.11.3"
+    bootstrap-table: "npm:^1.22.4"
     core-js: "npm:^3.23.0"
     jquery: "npm:^3.7.1"
     regenerator-runtime: "npm:^0.13.9"
@@ -5971,7 +6032,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"schema-utils@npm:^3.1.1, schema-utils@npm:^3.2.0":
+"schema-utils@npm:^3.0.0, schema-utils@npm:^3.1.1, schema-utils@npm:^3.2.0":
   version: 3.3.0
   resolution: "schema-utils@npm:3.3.0"
   dependencies:
@@ -6211,12 +6272,12 @@ __metadata:
   linkType: hard
 
 "socks@npm:^2.7.1":
-  version: 2.8.1
-  resolution: "socks@npm:2.8.1"
+  version: 2.8.3
+  resolution: "socks@npm:2.8.3"
   dependencies:
     ip-address: "npm:^9.0.5"
     smart-buffer: "npm:^4.2.0"
-  checksum: 35659264c1479a367077b03b1791c7196e06dae5260a0ddbcc5724d352c7c1070c909c33de850501070f93c058feef7d39d0d5447fd174fc273d5b1577fc7749
+  checksum: 1ab6524a88295b66e4cc5db24a2d2ef1ca167dee8e887ff218639af39e0cb541539647618e0530a9ee9964207f176ff7e1633f3b9539c84fca8b90e789f7c7aa
   languageName: node
   linkType: hard
 
