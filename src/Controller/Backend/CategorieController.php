@@ -7,6 +7,7 @@ use App\Form\CategorieType;
 use App\Repository\CategorieRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -35,7 +36,7 @@ class CategorieController extends AbstractController
 
             $this->addFlash('success', 'Catégorie a été créée avec succès');
 
-            return $this->redirectToRoute('admin.categories.index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('admin.categories.index');
         }
 
         return $this->render('Backend/Categories/new.html.twig', [
@@ -64,7 +65,7 @@ class CategorieController extends AbstractController
     }
 
     #[Route('/{id}/delete', name: '.delete', methods: ['POST'])]
-    public function delete(Request $request, Categorie $categorie, EntityManagerInterface $entityManager): Response
+    public function delete(Request $request, Categorie $categorie, EntityManagerInterface $entityManager): RedirectResponse
     {
         if ($this->isCsrfTokenValid('delete' . $categorie->getId(), $request->request->get('token'))) {
             $entityManager->remove($categorie);

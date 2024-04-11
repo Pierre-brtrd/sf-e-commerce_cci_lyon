@@ -43,6 +43,7 @@ class ProduitType extends AbstractType
                 'multiple' => true,
                 'expanded' => false,
                 'autocomplete' => true,
+                'by_reference' => false,
             ])
             ->add('shortDescription', TextareaType::class, [
                 'label' => 'Description courte',
