@@ -143,6 +143,11 @@ class Produit
         return $this;
     }
 
+    public function getPriceTTC(): float
+    {
+        return $this->priceHT * (1 + $this->taxe->getRate());
+    }
+
     public function setImage(?File $imageFile = null): static
     {
         $this->image = $imageFile;

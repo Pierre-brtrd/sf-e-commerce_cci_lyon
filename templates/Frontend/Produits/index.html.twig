@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Liste des produits
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-2 mb-3">
+		<h1 class="text-center">Liste des produits</h1>
+		<div class="d-flex justify-content-between">
+			{% include 'Frontend/Produits/_count.html.twig' %}
+		</div>
+		<div class="row gy-3 mt-2">
+			{% for produit in produits %}
+				{% include 'Frontend/Produits/_card.html.twig' %}
+			{% endfor %}
+			{% include 'Frontend/Produits/_pagination.html.twig' %}
+		</div>
+	</section>
+{% endblock %}
