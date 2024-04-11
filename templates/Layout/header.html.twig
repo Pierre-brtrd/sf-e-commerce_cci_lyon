@@ -22,9 +22,13 @@
 										Admin
 									</button>
 									<div class="dropdown-menu" aria-labelledby="triggerId">
-										<a class="dropdown-item" href="#">Users</a>
+										<a class="dropdown-item" href="{{ path('admin.users.index') }}">Users</a>
 										<div class="dropdown-divider"></div>
-										<a class="dropdown-item" href="#">Produits</a>
+										<a class="dropdown-item" href="{{ path('app_produit_index') }}">Produits</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="{{ path('admin.taxes.index') }}">Taxes</a>
+										<div class="dropdown-divider"></div>
+										<a class="dropdown-item" href="{{ path('admin.categories.index') }}">Catégpories</a>
 									</div>
 								</div>
 							</li>
