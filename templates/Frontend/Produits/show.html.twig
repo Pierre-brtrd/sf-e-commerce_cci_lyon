@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Détails
+	{{ produit.title }}
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-2">
+		<h1 class="text-center mb-4">Découvrez notre produit
+			{{ produit.title }}</h1>
+		<div class="row">
+			<div class="col-md-6">
+				<img src="{{ vich_uploader_asset(produit) }}" alt="{{ produit.title }}" loading="lazy" class="rounded">
+			</div>
+			<div class="col-md-6">
+				<h2>{{ produit.title }}</h2>
+				<twig:Categories categories="{{ produit.categories}}"/>
+				<p>{{ produit.shortDescription }}</p>
+				<p class="mt-2 fs-4 fw-bold text-secondary">{{ produit.priceTTC|format_currency('EUR') }}</p>
+			</div>
+		</div>
+		<div class="card p-3 mt-4">
+			<article>
+				{{ produit.description|sanitize_html }}
+			</article>
+		</div>
+	</section>
+{% endblock %}
