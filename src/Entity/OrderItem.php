@@ -24,9 +24,20 @@ class OrderItem
     #[Assert\Valid]
     private ?Produit $product = null;
 
-    #[ORM\ManyToOne(inversedBy: 'items')]
+    #[ORM\ManyToOne(inversedBy: 'items', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Order $orderRef = null;
+
+    /**
+     * Verify if the product is the same as the one in the order item.
+     *
+     * @param self $item
+     * @return boolean
+     */
+    public function equals(self $item): bool
+    {
+        return $this->getProduct()->getId() === $item->getProduct()->getId();
+    }
 
     public function getId(): ?int
     {

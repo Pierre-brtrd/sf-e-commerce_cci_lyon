@@ -19,6 +19,9 @@
 				<twig:Categories categories="{{ produit.categories}}"/>
 				<p>{{ produit.shortDescription }}</p>
 				<p class="mt-2 fs-4 fw-bold text-secondary">{{ produit.priceTTC|format_currency('EUR') }}</p>
+				{{ form_start(form) }}
+				{{ form_widget(form) }}
+				{{ form_end(form) }}
 			</div>
 		</div>
 		<div class="card p-3 mt-4">

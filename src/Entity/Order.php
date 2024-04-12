@@ -27,8 +27,7 @@ class Order
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    #[Assert\NotBlank]
+    #[ORM\Column(length: 255, nullable: true)]
     #[Assert\Length(max: 255)]
     private ?string $number = null;
 
@@ -41,12 +40,11 @@ class Order
     private ?string $status = null;
 
     #[ORM\ManyToOne(inversedBy: 'orders')]
-    #[ORM\JoinColumn(nullable: false)]
-    #[Assert\NotBlank]
+    #[ORM\JoinColumn()]
     #[Assert\Valid]
     private ?User $user = null;
 
-    #[ORM\OneToMany(targetEntity: OrderItem::class, mappedBy: 'orderRef', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: OrderItem::class, mappedBy: 'orderRef', orphanRemoval: true, cascade: ['persist', 'remove'])]
     private Collection $items;
 
     public function __construct()
@@ -105,10 +103,19 @@ class Order
 
     public function addItem(OrderItem $item): static
     {
-        if (!$this->items->contains($item)) {
-            $this->items->add($item);
-            $item->setOrderRef($this);
+        // On boucle sur les items existants dans la commande
+        foreach ($this->items as $existingItem) {
+            if ($existingItem->equals($item)) {
+                $existingItem->setQuantity(
+                    $existingItem->getQuantity() + $item->getQuantity()
+                );
+
+                return $this;
+            }
         }
+
+        $this->items->add($item);
+        $item->setOrderRef($this);
 
         return $this;
     }
@@ -120,6 +127,15 @@ class Order
             if ($item->getOrderRef() === $this) {
                 $item->setOrderRef(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function removeItems(): self
+    {
+        foreach ($this->getItems() as $item) {
+            $this->removeItem($item);
         }
 
         return $this;
