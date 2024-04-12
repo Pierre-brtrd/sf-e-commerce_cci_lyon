@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Order;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -19,6 +20,19 @@ class OrderRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Order::class);
+    }
+
+    public function findLatestCartByUser(User $user): ?Order
+    {
+        return $this->createQueryBuilder('o')
+            ->andWhere('u = :user')
+            ->andWhere('o.status = :status')
+            ->join('o.user', 'u')
+            ->setParameter('user', $user)
+            ->setParameter('status', Order::STATUS_CART)
+            ->orderBy('o.createdAt', 'DESC')
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 
     //    /**
