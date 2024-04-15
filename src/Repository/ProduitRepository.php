@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\Produit;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @extends ServiceEntityRepository<Produit>
@@ -16,8 +18,10 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class ProduitRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
-    {
+    public function __construct(
+        ManagerRegistry $registry,
+        private readonly PaginatorInterface $paginator
+    ) {
         parent::__construct($registry, Produit::class);
     }
 
@@ -27,6 +31,23 @@ class ProduitRepository extends ServiceEntityRepository
             ->orderBy('p.createdAt', $sort)
             ->getQuery()
             ->getResult();
+    }
+
+    public function findListShop(int $page = 1, int $maxPerPage = 6): PaginationInterface
+    {
+        $query = $this->createQueryBuilder('p')
+            ->andWhere('p.enable = :enable')
+            ->setParameter('enable', true)
+            ->join('p.taxe', 't')
+            ->leftJoin('p.categories', 'c')
+            ->orderBy('p.title', 'ASC')
+            ->getQuery();
+
+        return $this->paginator->paginate(
+            $query,
+            $page,
+            $maxPerPage
+        );
     }
 
     //    /**

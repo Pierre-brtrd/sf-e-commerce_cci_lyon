@@ -1,0 +1,14 @@
+<div class="col-md-4">
+	<div class="card">
+		<img src="{{ vich_uploader_asset(produit) }}" alt="{{ produit.title }}" loading="lazy" class="rounded-top">
+		<div class="card-body">
+			<a href="{{ path('app.produits.show', {code: produit.code}) }}">
+				<h2 class="card-title">{{ produit.title }}</h2>
+			</a>
+			<twig:Categories categories="{{ produit.categories }}"/>
+			<p class="card-text">{{ produit.shortDescription|sanitize_html }}</p>
+			<p class="card-text text-secondary mt-2 fs-3 fw-bold">{{ produit.priceTTC|format_currency('EUR') }}</p>
+			<a href="{{ path('app.produits.show', {code: produit.code}) }}" class="btn btn-primary mt-2">En savoir plus</a>
+		</div>
+	</div>
+</div>

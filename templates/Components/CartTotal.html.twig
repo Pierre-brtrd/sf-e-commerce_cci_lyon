@@ -1,0 +1,22 @@
+<div class="card">
+	<h2 class="card-header">Total</h2>
+	<ul class="list-group list-group-flush">
+		<li class="list-group-item d-flex justify-content-between">
+			<span class="fw-bold">Total HT:</span>
+			<span class="fw-bold">{{ cart.priceHT|format_currency('EUR') }}</span>
+		</li>
+		<li class="list-group-item d-flex justify-content-between">
+			<span class="fw-bold">Total taxes:</span>
+			<span class="fw-bold">{{ cart.priceTaxe|format_currency('EUR') }}</span>
+		</li>
+		<li class="list-group-item d-flex justify-content-between">
+			<span class="fw-bold">Total TTC:</span>
+			<span class="fw-bold">{{ cart.priceTTC|format_currency('EUR') }}</span>
+		</li>
+	</ul>
+	{% if iscart  %}
+		<div class="card-body">
+			<a href="#" class="btn btn-primary w-100">Payer la commande</a>
+		</div>
+	{% endif %}
+</div>

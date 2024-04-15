@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Votre panier
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-2">
+		<h1 class="text-center">Votre panier</h1>
+		{% if cart.items|length > 0 %}
+			<div class="row mt-4">
+				<div class="col-md-8">
+					{{ form_start(form) }}
+					<twig:ListItem order="{{ form }}" iscart="true"/>
+					{{ form_end(form) }}
+				</div>
+				<div class="col-md-4">
+					<twig:CartTotal cart="{{ cart }}" iscart="true"/>
+				</div>
+			</div>
+		{% else %}
+			<div class="alert alert-info">
+				<p>Votre panier est vide !</p>
+				<p>Vous pouvez ajouter des produits en
+					<a href="{{ path('app.produits.index') }}" class="btn btn-primary">cliquant ici</a>
+				</p>
+			</div>
+		{% endif %}
+	</section>
+{% endblock %}

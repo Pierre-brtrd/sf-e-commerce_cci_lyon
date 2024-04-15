@@ -143,7 +143,12 @@ class Produit
         return $this;
     }
 
-    public function setImage(?File $imageFile = null): void
+    public function getPriceTTC(): float
+    {
+        return $this->priceHT * (1 + $this->taxe->getRate());
+    }
+
+    public function setImage(?File $imageFile = null): static
     {
         $this->image = $imageFile;
 
@@ -152,6 +157,8 @@ class Produit
             // otherwise the event listeners won't be called and the file is lost
             $this->updatedAt = new \DateTimeImmutable();
         }
+
+        return $this;
     }
 
     public function getImage(): ?File

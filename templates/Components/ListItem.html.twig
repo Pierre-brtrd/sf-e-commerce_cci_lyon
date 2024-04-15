@@ -1,0 +1,41 @@
+<div class="card">
+	<div class="card-header bg-primary d-flex flex-wrap justify-content-between">
+		<h2 class="text-light">Vos produits</h2>
+		{% if iscart %}
+			<div class="d-flex flex-wrap gap-2">
+				{{ form_widget(order.save) }}
+				{{ form_widget(order.clear) }}
+			</div>
+		{% endif %}
+	</div>
+	<div class="card-body">
+		<ul class="list-group list-group-flush">
+			{% for item in order.items %}
+				{% set product = iscart ? item.vars.data.product : item.product %}
+				<li class="d-flex list-group-item align-items-center">
+					<div class="flex-fill me-2">
+						<img src="{{ vich_uploader_asset(product) }}" width="150" alt="{{ product.title }}" class="rounded mx-auto" loading="lazy">
+					</div>
+					<div class="flex-fill me-2">
+						<h2 class="card-title">{{ product.title }}</h2>
+						<p class="card-text">{{ product.shortDescription|slice(0, 50) ~ '...' }}</p>
+						{% if iscart %}
+							<div class="d-flex gap-3 align-items-end">
+								{{ form_row(item.quantity) }}
+								{{ form_row(item.remove) }}
+							</div>
+						{% else %}
+							<p class="card-text">
+								<span class="fw-bold">Quantité:</span>
+								{{ item.quantity }}
+							</p>
+						{% endif %}
+					</div>
+					<div class="flex-fill">
+						<p class="card-text fw-bold fs-5">{{ (iscart ? item.vars.data.priceTTC : item.priceTTC)|format_currency('EUR') }}</p>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>

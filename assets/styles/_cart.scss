@@ -1,0 +1,18 @@
+.cart-link-header {
+    position: relative;
+
+    .cart-number-count {
+        position: absolute;
+        z-index: 1;
+        background: $white;
+        top: 90%;
+        right: -45%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        font-size: 15px;
+        padding: 5px;
+        color: $text-color;
+    }
+}
