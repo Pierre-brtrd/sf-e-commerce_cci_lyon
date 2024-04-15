@@ -1724,12 +1724,12 @@ __metadata:
   linkType: hard
 
 "@types/eslint@npm:*":
-  version: 8.56.7
-  resolution: "@types/eslint@npm:8.56.7"
+  version: 8.56.9
+  resolution: "@types/eslint@npm:8.56.9"
   dependencies:
     "@types/estree": "npm:*"
     "@types/json-schema": "npm:*"
-  checksum: d8a44453e6101c2ae4e79cb7257bcfca2191f328e6eefbe88ebcafe9afaf1d1ccfc3c8ea71343514cddd1ac49d584c1b11a665162863f40499e059e073dd7860
+  checksum: 8094b773a40ebd4a4dda7e25b692bfa237af319295623f956e6dbfb6e0b87ba64ad79f0d0a1576cada19e70a6964e30eed0ea76d933d745424e6c01ffe37768b
   languageName: node
   linkType: hard
 
@@ -2615,9 +2615,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001587":
-  version: 1.0.30001608
-  resolution: "caniuse-lite@npm:1.0.30001608"
-  checksum: 2252f1857df8e6ec48309fc57757d25eaa61cc5445f56448676cc441386bc5a90e9af6be924b645d6201cfd834d9f64cd6a1c77ba4ecfe69407de58734ec1408
+  version: 1.0.30001610
+  resolution: "caniuse-lite@npm:1.0.30001610"
+  checksum: 928460ec1550e1da059cefac11c212eb41c3021cb6b8833f6f2ee6a0a869177d2da0cbd87e7d0d7047c8bb581ec13ef71d43d65b6afc9533aba2966d269f96c5
   languageName: node
   linkType: hard
 
@@ -3288,9 +3288,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.668":
-  version: 1.4.733
-  resolution: "electron-to-chromium@npm:1.4.733"
-  checksum: 07564b22d854044da0a1e627683ee3caa096a694bc250663ca80691e32341d9e66978724b2ff5f69475479e54e87a3ed3b8d7f57441e8070759ad01bcae5f6d9
+  version: 1.4.736
+  resolution: "electron-to-chromium@npm:1.4.736"
+  checksum: 00e43243b32dce7fe8196de4f463d60d8cd87593530c4c54475c45dd32f772a74d5a906f6584582cdfa162e629e673020692de4db1bdf0f4ff0f637ff16fc759
   languageName: node
   linkType: hard
 
@@ -5994,8 +5994,8 @@ __metadata:
   linkType: hard
 
 "sass-loader@npm:^14.1.1":
-  version: 14.1.1
-  resolution: "sass-loader@npm:14.1.1"
+  version: 14.2.0
+  resolution: "sass-loader@npm:14.2.0"
   dependencies:
     neo-async: "npm:^2.6.2"
   peerDependencies:
@@ -6015,20 +6015,20 @@ __metadata:
       optional: true
     webpack:
       optional: true
-  checksum: 37256cf8916856f24dfddf80a1c51b7d8618c56726258db2599df0f04b7f52046ba63171147217be3ceae39d43a02d7d64ff6d45958bf7e4319ad1b830c3101c
+  checksum: 6494617be4804e4fa05e93c9a45f59a2355739f1e0d00b57594b0b3917e2607bd7a44956211a4eb782584568e2423cbf4c9cac47c34f1d02dcce335ae4605f85
   languageName: node
   linkType: hard
 
 "sass@npm:^1.74.1":
-  version: 1.74.1
-  resolution: "sass@npm:1.74.1"
+  version: 1.75.0
+  resolution: "sass@npm:1.75.0"
   dependencies:
     chokidar: "npm:>=3.0.0 <4.0.0"
     immutable: "npm:^4.0.0"
     source-map-js: "npm:>=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: b9b9fa907cff926f05b7ba4b9e5dd7a5ed3c0b8478841af14c07d5de7baed2d74cff9a59f176006aa54ba52512aeb8786193dd4f42c5fe8cac4f45684e295fda
+  checksum: 651f533218f0d14f15f7330ac959140c2f7501b40f4ed33f990a97e2d8ab1176c4eec8115821b7ec836608a823c1e80fd9a900177d02aa4883a1f75c0f5a68eb
   languageName: node
   linkType: hard
 

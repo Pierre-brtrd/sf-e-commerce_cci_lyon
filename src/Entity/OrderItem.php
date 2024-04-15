@@ -39,6 +39,21 @@ class OrderItem
         return $this->getProduct()->getId() === $item->getProduct()->getId();
     }
 
+    public function getPriceHT(): float
+    {
+        return $this->getProduct()->getPriceHT() * $this->getQuantity();
+    }
+
+    public function getPriceTaxe(): float
+    {
+        return ($this->getProduct()->getPriceHT() * $this->getProduct()->getTaxe()->getRate()) * $this->getQuantity();
+    }
+
+    public function getPriceTTC(): float
+    {
+        return $this->getPriceHT() + $this->getPriceTaxe();
+    }
+
     public function getId(): ?int
     {
         return $this->id;

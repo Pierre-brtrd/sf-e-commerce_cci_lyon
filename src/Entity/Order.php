@@ -52,6 +52,39 @@ class Order
         $this->items = new ArrayCollection();
     }
 
+    public function getPriceHT(): float
+    {
+        $amount = 0;
+
+        foreach ($this->getItems() as $item) {
+            $amount += $item->getPriceHT();
+        }
+
+        return $amount;
+    }
+
+    public function getPriceTaxe(): float
+    {
+        $amount = 0;
+
+        foreach ($this->getItems() as $item) {
+            $amount += $item->getPriceTaxe();
+        }
+
+        return $amount;
+    }
+
+    public function getPriceTTC(): float
+    {
+        $amount = 0;
+
+        foreach ($this->getItems() as $item) {
+            $amount += $item->getPriceTTC();
+        }
+
+        return $amount;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

@@ -49,6 +49,12 @@
 							<a href="{{ path('app.login')}}" class="btn btn-outline-light">Connexion</a>
 						</li>
 					{% endif %}
+					<li class="navbar-item ms-2">
+						<a href="{{ path('app.cart.index') }}" class="btn btn-primary cart-link-header">
+							<i class="bi bi-cart-fill"></i>
+							<span class="badge badge-pill badge-light cart-number-count">{{ getCartNumber() }}</span>
+						</a>
+					</li>
 				</ul>
 			</div>
 		</div>
