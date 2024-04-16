@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Récapitulatif de votre commande
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+	<section class="container mt-2">
+		<h1 class="text-center">Récapitulatif de votre commande</h1>
+		<a href="{{ path('app.cart.index') }}" class="btn btn-primary my-3">Retour au panier</a>
+		<div class="row">
+			<div class="col-md-8">
+				<twig:ListItem order="{{ cart }}"/>
+			</div>
+			<div class="col-md-4">
+				<twig:CartTotal cart="{{ cart }}"/>
+			</div>
+		</div>
+	</section>
+{% endblock %}

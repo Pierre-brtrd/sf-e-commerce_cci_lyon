@@ -16,7 +16,7 @@
 	</ul>
 	{% if iscart  %}
 		<div class="card-body">
-			<a href="#" class="btn btn-primary w-100">Payer la commande</a>
+			<a href="{{ path('app.checkout.address') }}" class="btn btn-primary w-100">Payer la commande</a>
 		</div>
 	{% endif %}
 </div>
