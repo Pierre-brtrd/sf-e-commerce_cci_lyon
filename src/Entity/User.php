@@ -237,7 +237,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function hasAddress(Address $address): bool
     {
-        return $this->addresses->contains($address);
+        $addresses = $this->addresses;
+
+        foreach ($addresses as $userAddress) {
+            if (
+                $userAddress->getAddress() === $address->getAddress() &&
+                $userAddress->getZipCode() === $address->getZipCode() &&
+                $userAddress->getCity() === $address->getCity()
+            ) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public function getDefaultAddress(): ?Address

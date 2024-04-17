@@ -17,5 +17,8 @@
 				<twig:CartTotal cart="{{ cart }}"/>
 			</div>
 		</div>
+		{{ form_start(form) }}
+		<button type="submit" data-turbo="false" class="btn d-block btn-primary w-75 mx-auto mt-2">Payer la commande</button>
+		{{ form_end(form) }}
 	</section>
 {% endblock %}
