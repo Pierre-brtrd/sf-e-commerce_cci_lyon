@@ -28,3 +28,4 @@ services:
         # On définit les arguments du constructeur
         $stripeSecretKey: "%env(STRIPE_SECRET_KEY)%"
         $webhookSecret: "%env(STRIPE_WEBHOOK_SECRET)%"
+        $eventDispatcher: "@event_dispatcher"

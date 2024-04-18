@@ -11,6 +11,7 @@ use Stripe\Exception\SignatureVerificationException;
 use Stripe\Stripe;
 use Stripe\Webhook;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Webmozart\Assert\Assert;
 
 /**
@@ -21,6 +22,7 @@ class StripeFactory
     public function __construct(
         private readonly string $stripeSecretKey,
         private readonly string $webhookSecret,
+        private readonly EventDispatcherInterface $eventDispatcher
     ) {
         Stripe::setApiKey($this->stripeSecretKey);
         Stripe::setApiVersion('2020-08-27');
@@ -100,6 +102,8 @@ class StripeFactory
         }
 
         $event = new StripeEvent($event);
+
+        $this->eventDispatcher->dispatch($event, $event->getName());
 
         return new JsonResponse([
             'status' => 'Succès',
