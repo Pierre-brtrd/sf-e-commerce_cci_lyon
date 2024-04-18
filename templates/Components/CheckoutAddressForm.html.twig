@@ -1,0 +1,24 @@
+<div class="card">
+	<h2 class="card-header bg-primary text-light">Adresse</h2>
+	<div class="card-body">
+		{{ form_start(form, {attr: {class: 'form-checkout-address'}}) }}
+		{% if addresses|length > 0 %}
+			<div class="dropdown dropdown-addresses mb-2" {{ stimulus_controller('selectAddress') }}>
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="btn-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Carnet d'adresses
+				</button>
+				<div class="dropdown-menu" aria-labelledby="btn-dropdown">
+					{% for address in addresses %}
+						<a class="dropdown-item" data-address="{{ address.address }}" data-zip-code="{{ address.zipCode }}" data-city="{{ address.city }}">{{ address }}</a>
+						{% if loop.index != loop.last %}
+							<div class="dropdown-divider"></div>
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+		{% endif %}
+		{{ form_widget(form) }}
+		<button type="submit" class="btn btn-primary">Envoyer</button>
+		{{ form_end(form) }}
+	</div>
+</div>

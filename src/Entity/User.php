@@ -55,9 +55,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Order::class, mappedBy: 'user')]
     private Collection $orders;
 
+    #[ORM\OneToMany(targetEntity: Address::class, mappedBy: 'user')]
+    private Collection $addresses;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Address $defaultAddress = null;
+
+    #[ORM\OneToMany(targetEntity: Payment::class, mappedBy: 'user')]
+    private Collection $payments;
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
+        $this->addresses = new ArrayCollection();
+        $this->payments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -188,6 +199,95 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
             // set the owning side to null (unless already changed)
             if ($order->getUser() === $this) {
                 $order->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Address>
+     */
+    public function getAddresses(): Collection
+    {
+        return $this->addresses;
+    }
+
+    public function addAddress(Address $address): static
+    {
+        if (!$this->addresses->contains($address)) {
+            $this->addresses->add($address);
+            $address->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAddress(Address $address): static
+    {
+        if ($this->addresses->removeElement($address)) {
+            // set the owning side to null (unless already changed)
+            if ($address->getUser() === $this) {
+                $address->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function hasAddress(Address $address): bool
+    {
+        $addresses = $this->addresses;
+
+        foreach ($addresses as $userAddress) {
+            if (
+                $userAddress->getAddress() === $address->getAddress() &&
+                $userAddress->getZipCode() === $address->getZipCode() &&
+                $userAddress->getCity() === $address->getCity()
+            ) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function getDefaultAddress(): ?Address
+    {
+        return $this->defaultAddress;
+    }
+
+    public function setDefaultAddress(?Address $defaultAddress): static
+    {
+        $this->defaultAddress = $defaultAddress;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Payment>
+     */
+    public function getPayments(): Collection
+    {
+        return $this->payments;
+    }
+
+    public function addPayment(Payment $payment): static
+    {
+        if (!$this->payments->contains($payment)) {
+            $this->payments->add($payment);
+            $payment->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePayment(Payment $payment): static
+    {
+        if ($this->payments->removeElement($payment)) {
+            // set the owning side to null (unless already changed)
+            if ($payment->getUser() === $this) {
+                $payment->setUser(null);
             }
         }
 
