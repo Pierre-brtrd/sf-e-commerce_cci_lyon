@@ -1,0 +1,6 @@
+{% macro btn(label, sorting, order) %}
+
+	<a href="{{ path(app.request.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all())|merge({sort: sorting, order: order})) }}" class="btn btn-primary">
+		{{ label }}
+	</a>
+{% endmacro %}

@@ -8,14 +8,26 @@
 {% block body %}
 	<section class="container mt-2 mb-3">
 		<h1 class="text-center">Liste des produits</h1>
-		<div class="d-flex justify-content-between">
-			{% include 'Frontend/Produits/_count.html.twig' %}
-		</div>
-		<div class="row gy-3 mt-2">
-			{% for produit in produits %}
-				{% include 'Frontend/Produits/_card.html.twig' %}
-			{% endfor %}
-			{% include 'Frontend/Produits/_pagination.html.twig' %}
+		<div class="row mt-4">
+			<aside class="col-md-3">
+				{% include 'Frontend/Produits/_form.html.twig' %}
+			</aside>
+			<div class="col-md-9">
+				<div class="d-flex justify-content-between">
+					{% include 'Frontend/Produits/_count.html.twig' %}
+					{% include 'Frontend/Produits/_sorting.html.twig' %}
+				</div>
+				<div class="row gy-3 mt-1">
+					{% for produit in produits %}
+						{% include 'Frontend/Produits/_card.html.twig' %}
+					{% else %}
+						<div class="alert alert-info">
+							Aucun produit ne correspond à votre recherche.
+						</div>
+					{% endfor %}
+					{% include 'Frontend/Produits/_pagination.html.twig' %}
+				</div>
+			</div>
 		</div>
 	</section>
 {% endblock %}

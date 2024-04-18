@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Produit;
+use App\Filter\ProductFilter;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Knp\Component\Pager\Pagination\PaginationInterface;
@@ -48,6 +49,59 @@ class ProduitRepository extends ServiceEntityRepository
             $page,
             $maxPerPage
         );
+    }
+
+    public function findFilterListShop(ProductFilter $filter): array
+    {
+        $query = $this->createQueryBuilder('p')
+            ->andWhere('p.enable = :enable')
+            ->setParameter('enable', true)
+            ->join('p.taxe', 't')
+            ->leftJoin('p.categories', 'c');
+
+        if (!empty($filter->getQuery())) {
+            $query
+                ->andWhere('p.title LIKE :query')
+                ->setParameter('query', '%' . $filter->getQuery() . '%');
+        }
+
+        if ($filter->getMin()) {
+            $query
+                ->andWhere('p.priceHT * (1 + t.rate) >= :min')
+                ->setParameter('min', $filter->getMin());
+        }
+
+        if ($filter->getMax()) {
+            $query
+                ->andWhere('p.priceHT * (1 + t.rate) <= :max')
+                ->setParameter('max', $filter->getMax());
+        }
+
+        if (!empty($filter->getTags())) {
+            $query
+                ->andWhere('c.id IN (:tags)')
+                ->setParameter('tags', $filter->getTags());
+        }
+
+        $query
+            ->orderBy($filter->getSort(), $filter->getOrder())
+            ->getQuery();
+
+        $paginate = $this->paginator->paginate(
+            $query,
+            $filter->getPage(),
+            6
+        );
+
+        $subQuery = $query->select('MIN(p.priceHT * (1 + t.rate)) as min, MAX(p.priceHT * (1 + t.rate)) as max')
+            ->getQuery()
+            ->getScalarResult();
+
+        return [
+            'data' => $paginate,
+            'min' => (int) $subQuery[0]['min'],
+            'max' => (int) $subQuery[0]['max'],
+        ];
     }
 
     //    /**

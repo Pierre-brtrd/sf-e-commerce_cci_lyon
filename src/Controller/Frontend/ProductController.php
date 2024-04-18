@@ -4,7 +4,9 @@ namespace App\Controller\Frontend;
 
 use App\Entity\OrderItem;
 use App\Entity\Produit;
+use App\Filter\ProductFilter;
 use App\Form\AddToCartType;
+use App\Form\ProductFilterType;
 use App\Manager\CartManager;
 use App\Repository\ProduitRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,10 +26,21 @@ class ProductController extends AbstractController
     #[Route('', name: '.index', methods: ['GET'])]
     public function index(Request $request): Response
     {
-        $page = $request->query->get('page', 1);
+        $productFilter = (new ProductFilter)
+            ->setPage($request->query->get('page', 1))
+            ->setSort($request->query->get('sort', 'p.title'))
+            ->setOrder($request->query->get('order', 'ASC'));
+
+        $form = $this->createForm(ProductFilterType::class, $productFilter);
+        $form->handleRequest($request);
+
+        $produits = $this->productRepo->findFilterListShop($productFilter);
 
         return $this->render('Frontend/Produits/index.html.twig', [
-            'produits' => $this->productRepo->findListShop($page),
+            'produits' => $produits['data'],
+            'form' => $form,
+            'min' => $produits['min'],
+            'max' => $produits['max'],
         ]);
     }
 

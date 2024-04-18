@@ -1,0 +1,12 @@
+{{ form_start(form, {attr: {class: 'card p-3 js-filter-form'}}) }}
+{{ form_row(form.query) }}
+<h3 class="mb-3">Prix</h3>
+<div class="d-flex gap-2">
+	{{ form_row(form.min, {value: min}) }}
+	{{ form_row(form.max, {value: max}) }}
+</div>
+<h3 class="mb-3">Catégories</h3>
+{{ form_row(form.tags, {attr: {class: 'd-flex flex-wrap align-items-center gap-2'}}) }}
+<button type="submit" class="btn btn-primary">Filtrer</button>
+{# <button type="reset" class="btn btn-outline-primary">Réinitialiser</button> #}
+{{ form_end(form) }}
