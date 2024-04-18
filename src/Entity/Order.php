@@ -47,13 +47,9 @@ class Order
     #[ORM\OneToMany(targetEntity: OrderItem::class, mappedBy: 'orderRef', orphanRemoval: true, cascade: ['persist', 'remove'])]
     private Collection $items;
 
-    #[ORM\OneToMany(targetEntity: Payment::class, mappedBy: 'orderRef')]
-    private Collection $payments;
-
     public function __construct()
     {
         $this->items = new ArrayCollection();
-        $this->payments = new ArrayCollection();
     }
 
     public function getPriceHT(): float
@@ -173,36 +169,6 @@ class Order
     {
         foreach ($this->getItems() as $item) {
             $this->removeItem($item);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Payment>
-     */
-    public function getPayments(): Collection
-    {
-        return $this->payments;
-    }
-
-    public function addPayment(Payment $payment): static
-    {
-        if (!$this->payments->contains($payment)) {
-            $this->payments->add($payment);
-            $payment->setOrderRef($this);
-        }
-
-        return $this;
-    }
-
-    public function removePayment(Payment $payment): static
-    {
-        if ($this->payments->removeElement($payment)) {
-            // set the owning side to null (unless already changed)
-            if ($payment->getOrderRef() === $this) {
-                $payment->setOrderRef(null);
-            }
         }
 
         return $this;

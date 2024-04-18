@@ -48,8 +48,6 @@ class CartManager
             if ($oldCart) {
                 $cart = $this->mergeCarts($cart, $oldCart);
             }
-
-            $cart->setUser($user);
         }
 
         return $cart ?? $this->orderFactory->create();
