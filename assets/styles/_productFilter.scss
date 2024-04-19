@@ -1,0 +1,24 @@
+.js-filter-form {
+    position: sticky;
+    top: 4.5em;
+    z-index: 0;
+
+    .loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+    }
+
+    &.is-loading::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(247, 247, 247, 0.5);
+        z-index: 1;
+    }
+}

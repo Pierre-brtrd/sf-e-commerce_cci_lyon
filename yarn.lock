@@ -5963,6 +5963,7 @@ __metadata:
     bootstrap-table: "npm:^1.22.4"
     core-js: "npm:^3.23.0"
     jquery: "npm:^3.7.1"
+    lodash: "npm:^4.17.21"
     regenerator-runtime: "npm:^0.13.9"
     sass: "npm:^1.74.1"
     sass-loader: "npm:^14.1.1"

@@ -60,6 +60,7 @@ class ProductFilterType extends AbstractType
             'data_class' => ProductFilter::class,
             'method' => 'GET',
             'csrf_protection' => false,
+            'validation_groups' => false,
         ]);
     }
 

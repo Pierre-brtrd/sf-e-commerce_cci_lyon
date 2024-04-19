@@ -51,7 +51,7 @@ class ProduitRepository extends ServiceEntityRepository
         );
     }
 
-    public function findFilterListShop(ProductFilter $filter): array
+    public function findFilterListShop(ProductFilter $filter, int $maxPerPage = 6): array
     {
         $query = $this->createQueryBuilder('p')
             ->andWhere('p.enable = :enable')
@@ -90,7 +90,7 @@ class ProduitRepository extends ServiceEntityRepository
         $paginate = $this->paginator->paginate(
             $query,
             $filter->getPage(),
-            6
+            $maxPerPage
         );
 
         $subQuery = $query->select('MIN(p.priceHT * (1 + t.rate)) as min, MAX(p.priceHT * (1 + t.rate)) as max')
