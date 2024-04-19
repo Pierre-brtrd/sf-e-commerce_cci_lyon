@@ -1,6 +1,6 @@
 {% import 'Common/sorting.html.twig' as sorting %}
 
-<div class="d-flex gap-2">
+<div class="d-flex gap-2 js-filter-sorting">
 	{{ sorting.btn('Nom', 'p.title', app.request.get('order') == 'ASC' ? 'DESC' : 'ASC') }}
 	{{ sorting.btn('Prix', 'p.priceHT', app.request.get('order') == 'DESC' ? 'ASC' : 'DESC') }}
 </div>

@@ -1,0 +1,7 @@
+{% for produit in produits %}
+	{% include 'Frontend/Produits/_card.html.twig' %}
+{% else %}
+	<div class="alert alert-info">
+		Aucun produit ne correspond à votre recherche.
+	</div>
+{% endfor %}

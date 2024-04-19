@@ -10,6 +10,7 @@ use App\Form\ProductFilterType;
 use App\Manager\CartManager;
 use App\Repository\ProduitRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,6 +36,21 @@ class ProductController extends AbstractController
         $form->handleRequest($request);
 
         $produits = $this->productRepo->findFilterListShop($productFilter);
+
+        if ($request->query->get('ajax')) {
+            return new JsonResponse([
+                'content' => $this->renderView('Frontend/Produits/_list.html.twig', [
+                    'produits' => $produits['data'],
+                ]),
+                'sorting' => $this->renderView('Frontend/Produits/_sorting.html.twig'),
+                'pagination' => $this->renderView('Frontend/Produits/_pagination.html.twig', [
+                    'produits' => $produits['data'],
+                ]),
+                'count' => $this->renderView('Frontend/Produits/_count.html.twig', [
+                    'produits' => $produits['data'],
+                ])
+            ], 200);
+        }
 
         return $this->render('Frontend/Produits/index.html.twig', [
             'produits' => $produits['data'],

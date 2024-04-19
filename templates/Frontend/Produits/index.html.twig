@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block body %}
-	<section class="container mt-2 mb-3">
+	<section class="container mt-2 mb-3" {{ stimulus_controller('filter') }}>
 		<h1 class="text-center">Liste des produits</h1>
 		<div class="row mt-4">
 			<aside class="col-md-3">
@@ -17,16 +17,10 @@
 					{% include 'Frontend/Produits/_count.html.twig' %}
 					{% include 'Frontend/Produits/_sorting.html.twig' %}
 				</div>
-				<div class="row gy-3 mt-1">
-					{% for produit in produits %}
-						{% include 'Frontend/Produits/_card.html.twig' %}
-					{% else %}
-						<div class="alert alert-info">
-							Aucun produit ne correspond à votre recherche.
-						</div>
-					{% endfor %}
-					{% include 'Frontend/Produits/_pagination.html.twig' %}
+				<div class="row gy-3 mt-1 mb-3 js-filter-content">
+					{% include 'Frontend/Produits/_list.html.twig' %}
 				</div>
+				{% include 'Frontend/Produits/_pagination.html.twig' %}
 			</div>
 		</div>
 	</section>
