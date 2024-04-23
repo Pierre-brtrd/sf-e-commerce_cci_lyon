@@ -26,3 +26,10 @@ vich_uploader:
             inject_on_load: false
             delete_on_remove: true
             delete_on_update: true
+
+when@test:
+    knp_gaufrette:
+        adapters:
+            product_adapter:
+                local:
+                    directory: "%kernel.cache_dir%/images/products"

@@ -71,6 +71,7 @@ class Produit
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
     #[Assert\Valid]
+    #[Assert\NotBlank]
     private ?Taxe $taxe = null;
 
     public function __construct()

@@ -28,6 +28,7 @@
         "bootstrap-table": "^1.22.4",
         "jquery": "^3.7.1",
         "lodash": "^4.17.21",
+        "nouislider": "^15.7.1",
         "sass": "^1.74.1",
         "sass-loader": "^14.1.1"
     }

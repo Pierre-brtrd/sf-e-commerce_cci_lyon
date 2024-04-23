@@ -1,0 +1,5 @@
+App\Entity\Taxe:
+    tva_20:
+        rate: 0.2
+        name: TVA 20%
+        enable: true

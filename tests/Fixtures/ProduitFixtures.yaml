@@ -1,0 +1,24 @@
+include:
+    - TaxeFixtures.yaml
+    - CategorieFixtures.yaml
+
+App\Entity\Produit:
+    produit_name:
+        title (unique): Produit 1
+        description: <sentence(20)>
+        shortDescription: <sentence(10)>
+        priceHT: <randomFloat(2, 10, 1000)>
+        enable: <boolean()>
+        taxe: "@tva_20"
+        categories: <numberBetween(1, 3)>x @categorie*
+        image: <uploadImage()>
+
+    produit{1..19}:
+        title (unique): <word()>
+        description: <sentence(20)>
+        shortDescription: <sentence(10)>
+        priceHT: <randomFloat(2, 10, 1000)>
+        enable: <boolean()>
+        taxe: "@tva_20"
+        categories: <numberBetween(1, 3)>x @categorie*
+        image: <uploadImage()>

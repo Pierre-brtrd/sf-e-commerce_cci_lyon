@@ -8,9 +8,13 @@
 
 {{ form_row(form.query) }}
 <h3 class="mb-3">Prix</h3>
-<div class="d-flex gap-2">
-	{{ form_row(form.min, {value: min}) }}
-	{{ form_row(form.max, {value: max}) }}
+<div class="container mb-3" {{ stimulus_controller('noUiSlider') }}>
+	<div class="row">
+		<div class="col-md-6">{{ form_row(form.min, {value: min}) }}</div>
+		<div class="col-md-6">{{ form_row(form.max, {value: max}) }}</div>
+	</div>
+
+	<div id="price-slider" data-min="{{ min }}" data-max="{{ max }}"></div>
 </div>
 <h3 class="mb-3">Catégories</h3>
 {{ form_row(form.tags, {attr: {class: 'd-flex flex-wrap align-items-center gap-2'}}) }}

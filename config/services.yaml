@@ -29,3 +29,9 @@ services:
         $stripeSecretKey: "%env(STRIPE_SECRET_KEY)%"
         $webhookSecret: "%env(STRIPE_WEBHOOK_SECRET)%"
         $eventDispatcher: "@event_dispatcher"
+
+    App\DataFixtures\Providers\UserProvider:
+        tags: [{ name: nelmio_alice.faker.provider }]
+
+    App\DataFixtures\Providers\ProduitProvider:
+        tags: [{ name: nelmio_alice.faker.provider }]

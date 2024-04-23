@@ -1,0 +1,8 @@
+App\Entity\Categorie:
+    categorie1:
+        name: "Categorie de Test"
+        enable: true
+
+    categorie{2..11}:
+        name (unique): <word()>
+        enable: <boolean()>

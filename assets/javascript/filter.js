@@ -60,6 +60,17 @@ export class Filter {
         } else {
             this.pagination.addEventListener('click', clickListener);
         }
+
+
+        if (this.moreNav) {
+            document.addEventListener('scroll', function (e) {
+                console.error(window.scrollY, document.body.scrollHeight - 1000);
+
+                if (window.scrollY <= document.body.scrollHeight - 500) {
+                    this.loadMore.bind(this);
+                }
+            });
+        }
     }
 
     loadMore() {
